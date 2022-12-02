@@ -9,7 +9,10 @@ To run the code, `cd` into a day's directory and execute `deno run --allow-read 
 
 ```
 |_ Day <number>
-   |_ a.ts -> part a solution
-   |_ b.ts -> part b solution
    |_ input.txt -> provided input
+   |_ go
+      |_ main.go -> go solutions for parts a and b
+   |_ typescript
+      |_ a.ts -> typescript part a solution
+      |_ b.ts -> typescript part b solution
 ```
