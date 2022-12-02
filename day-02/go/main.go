@@ -22,16 +22,16 @@ func readLines(path string) ([]string, error) {
 	return lines, scanner.Err()
 }
 
-func calcPoints(lines []string, m map[string]int) int {
+func calcPoints(lines []string, scores map[string]int) int {
 	sum := 0
 	for i := 0; i < len(lines); i++ {
-		sum += m[lines[i]]
+		sum += scores[lines[i]]
 	}
 	return sum
 }
 
 func a(lines []string) int {
-	m := map[string]int{
+	scores := map[string]int{
 		"B X": 1,
 		"C Y": 2,
 		"A Z": 3,
@@ -43,11 +43,11 @@ func a(lines []string) int {
 		"B Z": 9,
 	}
 
-	return calcPoints(lines, m)
+	return calcPoints(lines, scores)
 }
 
 func b(lines []string) int {
-	m := map[string]int{
+	scores := map[string]int{
 		"B X": 1,
 		"C X": 2,
 		"A X": 3,
@@ -58,7 +58,7 @@ func b(lines []string) int {
 		"A Z": 8,
 		"B Z": 9,
 	}
-	return calcPoints(lines, m)
+	return calcPoints(lines, scores)
 }
 
 func main() {
