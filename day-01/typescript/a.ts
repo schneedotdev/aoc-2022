@@ -1,4 +1,4 @@
-const input = await Deno.readTextFile("./input.txt")
+const input = await Deno.readTextFile("../input.txt")
 const inventories = input.split('\n\n')
 
 let most = 0
