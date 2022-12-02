@@ -4,15 +4,15 @@ const lines = input.split('\n')
 const map: {
     [key: string]: number
 } = {
-    'A X': 1 + 3,
-    'A Y': 2 + 6,
-    'A Z': 3 + 0,
-    'B X': 1 + 0,
-    'B Y': 2 + 3,
-    'B Z': 3 + 6,
-    'C X': 1 + 6,
-    'C Y': 2 + 0,
-    'C Z': 3 + 3
+    'B X': 1,
+    'C Y': 2,
+    'A Z': 3,
+    'A X': 4,
+    'B Y': 5,
+    'C Z': 6,
+    'C X': 7,
+    'A Y': 8,
+    'B Z': 9,
 }
 
 const points = lines.reduce((points, turn) => points + map[turn], 0)
