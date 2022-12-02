@@ -24,48 +24,39 @@ func readLines(path string) ([]string, error) {
 	return lines, scanner.Err()
 }
 
-func a(lines []string) int {
+func sortElvesByCalories(lines []string) ([]int, int) {
 	elves := []int{0}
-	j := 0
+	elf := 0
 
+	// loop through input lines
 	for i := 0; i < len(lines); i++ {
 		if lines[i] != "" {
+			// convert strings to ints
 			calories, err := strconv.Atoi(lines[i])
 			if err != nil {
 				log.Fatalf("readLines: %s", err)
 			}
-			elves[j] += calories
+			// increment current elf's total calories
+			elves[elf] += calories
 		} else {
-			j += 1
+			// increment elf so that the next collection of values can be summed to the element of the elves array
+			elf += 1
 			elves = append(elves, 0)
 		}
 	}
 
 	sort.Ints(elves)
 
-	return elves[len(elves)-1]
+	return elves, len(elves)
+}
+
+func a(lines []string) int {
+	elves, len := sortElvesByCalories(lines)
+	return elves[len-1]
 }
 
 func b(lines []string) int {
-	elves := []int{0}
-	j := 0
-
-	for i := 0; i < len(lines); i++ {
-		if lines[i] != "" {
-			calories, err := strconv.Atoi(lines[i])
-			if err != nil {
-				log.Fatalf("readLines: %s", err)
-			}
-			elves[j] += calories
-		} else {
-			j += 1
-			elves = append(elves, 0)
-		}
-	}
-
-	sort.Ints(elves)
-
-	len := len(elves)
+	elves, len := sortElvesByCalories(lines)
 	return elves[len-1] + elves[len-2] + elves[len-3]
 }
 
