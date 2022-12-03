@@ -3,19 +3,17 @@ const lines = input.split('\n')
 
 const priority = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-const common: string[] = []
+let sum = 0
 
 for(let i = 0; i < lines.length; i += 3) {
     const [one, two, three] = [lines[i], lines[i + 1], lines[i + 2]]
 
     for(const char of one) {
         if(two.includes(char) && three.includes(char)) {
-            common.push(char)
+            sum += priority.indexOf(char) + 1
             break;
         }
     }
 }
-
-const sum = common.reduce((sum, char) => sum + priority.indexOf(char) + 1, 0)
 
 console.log(sum) // answer: 2758
