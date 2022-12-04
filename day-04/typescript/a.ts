@@ -9,8 +9,7 @@ const ranges = lines.map(line => {
 })
 
 // ranges that fully overlap
-const overlaps = ranges.filter(range => {
-    const [a, b, c, d] = range
+const overlaps = ranges.filter(([a, b, c, d]) => {
     return (inRange(c, a, b) && inRange(d, a, b)) || 
             (inRange(a, c, d) && inRange(b, c, d))
 }).length
