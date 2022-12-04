@@ -8,15 +8,15 @@ const ranges = lines.map(line => {
     }).flat().map(Number)
 })
 
+// check if num is in range of min and max (type declaration in gloabl.d.ts)
+Number.prototype.inRange = function(min: number, max: number) {
+    return this >= min && this <= max
+}
+
 // ranges that fully overlap
 const overlaps = ranges.filter(([a, b, c, d]) => {
-    return (inRange(c, a, b) && inRange(d, a, b)) || 
-            (inRange(a, c, d) && inRange(b, c, d))
+    return a.inRange(c, d) && b.inRange(c, d) ||
+        c.inRange(a, b) && d.inRange(a, b)
 }).length
-
-// check if num is in range of min and max
-function inRange(num: number, min: number, max: number) {
-    return num >= min && num <= max
-}
 
 console.log(overlaps) // answer: 518
