@@ -11,10 +11,15 @@ const ranges = lines.map(line => {
 // ranges that partially overlap
 const overlaps = ranges.filter(range => {
     const [a, b, c, d] = range
-    return (a >= c && a <= d) ||
-        (b >= c && b <= d) ||
-        (c >= a && c <= b) ||
-        (d <= b && d >= a)
+    return inRange(a, c, d) ||
+        inRange(b, c, d) ||
+        inRange(c, a, b) ||
+        inRange(d, a, b)
 }).length
+
+// check if num is in range of min and max
+function inRange(num: number, min: number, max: number) {
+    return num >= min && num <= max
+}
 
 console.log(overlaps) // answer: 909
