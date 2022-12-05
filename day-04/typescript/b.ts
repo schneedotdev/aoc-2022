@@ -15,10 +15,7 @@ Number.prototype.inRange = function(min, max) {
 
 // ranges that partially overlap
 const overlaps = ranges.filter(([a, b, c, d]) => {
-    return a.inRange(c, d) ||
-        b.inRange(c, d) ||
-        c.inRange(a, b) ||
-        d.inRange(a, b)
+    return a.inRange(c, d) || c.inRange(a, b)
 }).length
 
 console.log(overlaps) // answer: 909
