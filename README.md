@@ -2,11 +2,16 @@
 
 My solutions to [Advent of Code](https://adventofcode.com/) 2022, written in TypeScript.
 
-To run typescript code, `cd` into a day's directory, the typescript folder, then execute `deno run --allow-read <file name>.ts`
 
-To run go code, `cd` into a day's directory, the go's folder, then execute `go run main.go`
+## How to run
 
-### Directory Outline
+### TypeScript
+`cd` into a day's directory, then the typescript folder, and execute `deno run --allow-read <file name>.ts`
+
+### Go
+`cd` into a day's directory, then the go's folder, and execute `go run main.go`
+
+## Directory Outline
 
 ```
 |_ Day <number>
