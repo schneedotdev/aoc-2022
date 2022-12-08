@@ -1,12 +1,12 @@
 const input = await Deno.readTextFile("../input.txt")
-const lines = input.split('$').slice(2)
+const lines = input.split('$').slice(1)
 
 const paths: number[] = []
 let sizes: number[] = []
 let total = 0
 
 lines.forEach(line => {
-    const args = line.slice(1).split('\n').slice(0, -1)
+    const args = line.slice(1).split('\n').filter(e => e !== '')
     processCmd(args)
 })
 
@@ -34,18 +34,20 @@ function processCD(location: string) {
 }
 
 function processLS(args: string[]) {
+    console.log({args})
     args.forEach(arg => {
+        console.log(arg)
         const [kind, _] = arg.split(' ')
 
         if(kind !== 'dir') {
-            paths[paths.length - 1] += Number(kind)
+            paths[paths.length - 1] += parseInt(kind, 10)
         }
     })
 }
 
-sizes = sizes.concat(...paths.reverse())
+sizes = sizes.concat(paths.reduce((sum, path) => sum + path))
 total = sizes
             .filter(size => size <= 100000)
             .reduce((sum, path) => sum + path, 0)
 
-console.log("part a solution:", total)
+console.log("part a solution:", total) // 1611443
