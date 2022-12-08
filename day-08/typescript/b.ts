@@ -44,4 +44,4 @@ function calcScore(row: number, col: number) {
     }
 }
 
-console.log("The highest scenic score is:", highest)
+console.log("The highest scenic score is:", highest) // answer: 479400
