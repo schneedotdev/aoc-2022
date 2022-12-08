@@ -2,13 +2,13 @@ const input = await Deno.readTextFile('../input.txt')
 const grid = input.split('\n').map(line => line.split('').map(Number))
 
 const PERIMETER = grid.length * 4 - 4
-let amount = PERIMETER
+let visibleTrees = PERIMETER
 
 for (let i = 1; i < grid.length - 1; i++) {
     for(let j = 1; j < grid[i].length - 1; j++) {
         const tree = grid[i][j]
         if(isVisible(tree, i, j)) {
-            amount++
+            visibleTrees++
         }
     }
 }
@@ -42,4 +42,4 @@ function isVisible(tree: number, row: number, col: number) {
     return visibleUp() || visibleDown() || visibleLeft() || visibleRight() 
 }
 
-console.log("The amount of visible trees is:", amount) // answer: 1809
+console.log("The amount of visible trees is:", visibleTrees) // answer: 1809
