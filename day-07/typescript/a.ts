@@ -3,7 +3,6 @@ const lines = input.split('$').slice(1)
 
 const paths: number[] = []
 let sizes: number[] = []
-let total = 0
 
 lines.forEach(line => {
     const args = line.slice(1).split('\n').filter(e => e !== '')
@@ -46,7 +45,7 @@ function processLS(args: string[]) {
 }
 
 sizes = sizes.concat(paths.reduce((sum, path) => sum + path))
-total = sizes
+const total = sizes
             .filter(size => size <= 100000)
             .reduce((sum, path) => sum + path, 0)
 
