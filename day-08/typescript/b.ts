@@ -14,27 +14,27 @@ function calcScore(row: number, col: number) {
     let [up, down, left, right] = [0, 0, 0, 0]
 
     // check up
-    for(let r = row - 1; r >= 0; r--) {
+    for(let i = row - 1; i >= 0; i--) {
         up++
-        if(grid[r][col] >= tree) break;
+        if(grid[i][col] >= tree) break;
     }
 
     // check down
-    for(let r = row + 1; r < grid.length; r++) {
+    for(let i = row + 1; i < grid.length; i++) {
         down++
-        if(grid[r][col] >= tree) break;
+        if(grid[i][col] >= tree) break;
     }
 
     // check left
-    for(let c = col - 1; c >= 0; c--) {
+    for(let i = col - 1; i >= 0; i--) {
         left++
-        if(grid[row][c] >= tree) break;
+        if(grid[row][i] >= tree) break;
     }
 
     // check right
-    for(let c = col + 1; c < grid.length; c++) {
+    for(let i = col + 1; i < grid.length; i++) {
         right++
-        if(grid[row][c] >= tree) break;
+        if(grid[row][i] >= tree) break;
     }
 
     const score = up * down * left * right
